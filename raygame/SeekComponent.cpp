@@ -6,8 +6,17 @@
 
 void SeekComponent::update(float deltaTime)
 {
+	MathLibrary::Vector2 newPosition = getOwner()->getTransform()->getWorldPosition() + getTarget()->getTransform()->getWorldPosition();
+	newPosition.getNormalized();
 
-	m_direction = /*getOwner()->getTransform()->getWorldPosition() + */getTarget()->getTransform()->getWorldPosition();
+	setMaxSpeed(20.0f);
 
-	getOwner()->getTransform()->setLocalPosition(m_direction);
+	m_direction = newPosition * getMaxSpeed();
+
+	MathLibrary::Vector2 seekForch = m_direction - getOwner()->getTransform()->getWorldPosition();
+
+	m_velocity = m_velocity + (m_direction * deltaTime);
+
+	getOwner()->getTransform()->setWorldPostion(getOwner()->getTransform()->getWorldPosition() + m_velocity * deltaTime);
 }
+ 
