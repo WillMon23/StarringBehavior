@@ -38,7 +38,7 @@ public:
     /// Adds the given actor to the array of actors so that the scene may call its update and draw functions.
     /// </summary>
     /// <param name="actor">The actor to add to the scene.</param>
-    void addActor(Actor* actor);
+    void addItem(Actor* actor);
 
     /// <summary>
     /// Removes the actor at the given index. DOES NOT DELETE THE ACTOR!!!
@@ -62,7 +62,7 @@ public:
 
     Actor* getActor(int index);
 
-    ActorArray getActors() { return m_actors; }
+    DynamicArray<Actor*> getActors() { return m_actors; }
 
     virtual void start();
 
@@ -79,9 +79,9 @@ private:
     static void addActorToDeletionList(Actor* actor);
     void destroyActorsInList();
 
-    static ActorArray m_actorsToDelete;
-    ActorArray m_actors;
-    ActorArray m_UIElements;
+    static DynamicArray<Actor*> m_actorsToDelete;
+    DynamicArray<Actor*> m_actors;
+    DynamicArray<Actor*> m_UIElements;
     MathLibrary::Matrix3* m_world;
     bool m_started;
     int m_actorCount;

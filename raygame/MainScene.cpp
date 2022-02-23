@@ -13,6 +13,6 @@ void MainScene::start()
 	Enemy* enemy = new Enemy(300, 300, "enemy", player);
 	enemy->getTransform()->setScale({ 50,50 });
 	
-	addActor(player);
-	addActor(enemy);
+	addItem(player);
+	addItem(enemy);
 }
