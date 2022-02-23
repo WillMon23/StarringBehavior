@@ -2,21 +2,40 @@
 #include "Actor.h"
 #include "Transform2D.h"
 #include <Matrix3.h>
+#include <iostream>
 
+
+void SeekComponent::start()
+{
+	m_maxSpeed = 100;
+	m_velocity = { 1, 0 };
+	m_maxVelocity = { 10,10 };
+}
 
 void SeekComponent::update(float deltaTime)
 {
-	MathLibrary::Vector2 newPosition = getOwner()->getTransform()->getWorldPosition() + getTarget()->getTransform()->getWorldPosition();
-	newPosition.getNormalized();
+	//Sets the owener position to this veriable
+	MathLibrary::Vector2 position = getOwner()->getTransform()->getWorldPosition();
+	//Sets max speed for easy access 
+	setMaxSpeed(300.0f);
 
-	setMaxSpeed(20.0f);
+	//Tries to creat a desired velocity bey getiing the targets curent position and subtracting that by 
+	m_desiredVelocity = (getTarget()->getTransform()->getWorldPosition() - position).getNormalized();
 
-	m_direction = newPosition * getMaxSpeed();
+	m_desiredVelocity = m_desiredVelocity * getMaxSpeed();
 
-	MathLibrary::Vector2 seekForch = m_direction - getOwner()->getTransform()->getWorldPosition();
+	MathLibrary::Vector2 steeringForce = m_desiredVelocity - m_velocity ;
 
-	m_velocity = m_velocity + (m_direction * deltaTime);
+	m_velocity = m_velocity + steeringForce * deltaTime * m_maxSpeed;
+	
+	position = position + m_velocity * deltaTime;
 
-	getOwner()->getTransform()->setWorldPostion(getOwner()->getTransform()->getWorldPosition() + m_velocity * deltaTime);
+
+	std::cout << "X. " << position.x << std::endl;
+
+	std::cout << "Y. " << position.y << std::endl;
+
+
+	getOwner()->getTransform()->setWorldPostion(position);
 }
  

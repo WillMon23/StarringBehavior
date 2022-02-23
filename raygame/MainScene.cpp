@@ -10,7 +10,7 @@ void MainScene::start()
 	Player* player = new Player(50, 50, "Player");
 	player->getTransform()->setScale({ 50,50 });
 
-	Enemy* enemy = new Enemy(100, 100, "enemy", player);
+	Enemy* enemy = new Enemy(300, 300, "enemy", player);
 	enemy->getTransform()->setScale({ 50,50 });
 	
 	addActor(player);

@@ -3,6 +3,7 @@
 
 class SeekComponent;
 class SpriteComponent;
+class MoveComponent;
 class Enemy :
     public Actor
 {
@@ -17,6 +18,7 @@ public :
 private:
     SpriteComponent* m_spriteComp;
     SeekComponent* m_seekComp;
+    MoveComponent* m_moveComp;
 
     Actor* m_target;
 
