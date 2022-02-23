@@ -13,12 +13,17 @@ Enemy::Enemy(float x, float y, const char* name, Actor* target) : Actor::Actor(x
 void Enemy::start()
 {
 	Actor::start();
-	m_spriteComp = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
-	m_seekComp = dynamic_cast<SeekComponent*>(addComponent(new SeekComponent(getTarget())));
-	m_rotateComp = dynamic_cast<RotateComponent*>(addComponent(new RotateComponent()));
-	/*m_moveComp = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
+	m_spriteComp = dynamic_cast addComponent<SpriteComponent>();
+	
+
+	m_seekComp = addComponent<SeekComponent>();
+	m_seekComp->setTarget(getTarget());
+
+	m_rotateComp = addComponent<RotateComponent>();
+	m_moveComp = addComponent<MoveComponent>();
+
 	m_moveComp->setVelocity({ 0,-1 });
-	m_moveComp->setMaxSpeed(100);*/
+	m_moveComp->setMaxSpeed(100);
 }
 
 void Enemy::update(float deltaTime)
