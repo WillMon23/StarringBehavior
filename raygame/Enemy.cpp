@@ -14,9 +14,9 @@ void Enemy::start()
 	Actor::start();
 	m_spriteComp = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
 	m_seekComp = dynamic_cast<SeekComponent*>(addComponent(new SeekComponent(getTarget())));
-	m_moveComp = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
+	/*m_moveComp = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
 	m_moveComp->setVelocity({ 0,-1 });
-	m_moveComp->setMaxSpeed(100);
+	m_moveComp->setMaxSpeed(100);*/
 }
 
 void Enemy::update(float deltaTime)

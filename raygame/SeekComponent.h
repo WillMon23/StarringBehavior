@@ -12,13 +12,14 @@ public:
 
     void start() override;
     void update(float deltaTime) override;
-    Actor* getTarget() { return m_target; }
-    void setTarget(Actor* target) { m_target = target; }
+
+    Actor* getTarget() { return m_target; }   
+    float getForce() { return m_force; }
     MathLibrary::Vector2 getVelocity() { return m_velocity; }
 
-    float getMaxSpeed() { return m_maxSpeed; }
+    void setTarget(Actor* target) { m_target = target; }
     void setMaxVelocity(MathLibrary::Vector2 maxVelocity) { m_maxVelocity = maxVelocity; };
-    void setMaxSpeed(float speed) { m_maxSpeed = speed; }
+    void setMaxSpeed(float speed) { m_force = speed; }
 
 private:
     MathLibrary::Vector2 m_desiredVelocity;
@@ -29,6 +30,6 @@ private:
 
     
 
-    float m_maxSpeed;
+    float m_force;
 };
 

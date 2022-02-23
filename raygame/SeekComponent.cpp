@@ -7,7 +7,7 @@
 
 void SeekComponent::start()
 {
-	m_maxSpeed = 100;
+	m_force = 100;
 	m_velocity = { 1, 0 };
 	m_maxVelocity = { 10,10 };
 }
@@ -22,11 +22,13 @@ void SeekComponent::update(float deltaTime)
 	//Tries to creat a desired velocity bey getiing the targets curent position and subtracting that by 
 	m_desiredVelocity = (getTarget()->getTransform()->getWorldPosition() - position).getNormalized();
 
-	m_desiredVelocity = m_desiredVelocity * getMaxSpeed();
+	//After getiing the desired velocity multiply that velocty by a force 
+	m_desiredVelocity = m_desiredVelocity * getForce();
 
+	//
 	MathLibrary::Vector2 steeringForce = m_desiredVelocity - m_velocity ;
 
-	m_velocity = m_velocity + steeringForce * deltaTime * m_maxSpeed;
+	m_velocity = m_velocity + steeringForce * deltaTime * getForce();
 	
 	position = position + m_velocity * deltaTime;
 
