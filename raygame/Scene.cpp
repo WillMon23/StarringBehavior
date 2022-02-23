@@ -8,7 +8,7 @@ DynamicArray<Actor*> Scene::m_actorsToDelete = DynamicArray<Actor*>();
 Scene::Scene()
 {
     m_actorCount = 0;
-    m_actors = DynamicArray <T>();
+    m_actors = DynamicArray<Actor*>();
     m_world = new MathLibrary::Matrix3();
 }
 
@@ -65,8 +65,8 @@ void Scene::addActorToDeletionList(Actor* actor)
     if (m_actorsToDelete.contains(actor))
         return;
 
-    //Add actor to deletion list
-    m_actorsToDelete.addActor(actor);
+    //Add actor to deletion listgetItem
+    m_actorsToDelete.addItem(actor);
 
     //Add all the actors children to the deletion list
     for (int i = 0; i < actor->getTransform()->getChildCount(); i++)

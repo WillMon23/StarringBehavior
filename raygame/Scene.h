@@ -60,7 +60,7 @@ public:
     /// <param name="actor"> The actor that will be deleted. </param>
     static void destroy(Actor* actor);
 
-    Actor* getActor(int index);
+    Actor* getItem(int index);
 
     DynamicArray<Actor*> getActors() { return m_actors; }
 

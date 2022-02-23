@@ -155,10 +155,10 @@ template<typename T>
 bool DynamicArray<T>::contains(T item)
 {
 	//Iterate through actor array
-	for (int i = 0; i < m_actorCount; i++)
+	for (int i = 0; i < getLength(); i++)
 	{
 		//return the current actor if it matches the argument
-		if (m_actors[i] == actor)
+		if (m_items[i] == item)
 			return true;
 	}
 
