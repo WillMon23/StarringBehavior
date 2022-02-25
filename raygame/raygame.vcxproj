@@ -184,6 +184,7 @@
     <ClInclude Include="SeekComponent.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Transform2D.h" />
+    <ClInclude Include="WonderComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

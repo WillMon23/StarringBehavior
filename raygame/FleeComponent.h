@@ -1,6 +1,5 @@
 #pragma once
 #include "Transform2D.h"
-#include "Actor.h"
 #include "Component.h"
 #include <iostream>
 
@@ -29,7 +28,7 @@ void FleeComponent::update(float deltaTime) {
 	//Sets the owener position to this veriable
 	MathLibrary::Vector2 position = getOwner()->getTransform()->getWorldPosition();
 	//Sets max speed for easy access 
-	setForce(300.0f);
+	setForce(70.0f);
 
 	//Tries to creat a desired velocity bey getiing the targets curent position and subtracting that by 
 	m_desiredVelocity = (position - getTarget()->getTransform()->getWorldPosition()).getNormalized();

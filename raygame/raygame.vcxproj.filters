@@ -124,5 +124,8 @@
     <ClInclude Include="FleeComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WonderComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -18,17 +18,17 @@ void Enemy::start()
 	m_spriteComp->setPath("Images/enemy.png");
 	
 
-	m_seekComp = addComponent<SeekComponent>();
-	m_seekComp->setTarget(getTarget());
+	/*m_seekComp = addComponent<SeekComponent>();
+	m_seekComp->setTarget(getTarget());*/
 
 	m_fleeComp = addComponent<FleeComponent>();
 	m_fleeComp->setTarget(getTarget());
 
 	m_rotateComp = addComponent<RotateComponent>();
 	
-	/*m_moveComp = addComponent<MoveComponent>();
-	m_moveComp->setVelocity({ 0,-1 });
-	m_moveComp->setMaxSpeed(100);*/
+	m_moveComp = addComponent<MoveComponent>();
+	m_moveComp->setVelocity({ 1,0 });
+	m_moveComp->setMaxSpeed(100.0f);
 }
 
 void Enemy::update(float deltaTime)
