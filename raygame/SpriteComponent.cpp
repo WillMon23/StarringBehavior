@@ -15,6 +15,11 @@ SpriteComponent::SpriteComponent(const char* path)
 	m_texture = new Texture2D(RAYLIB_H::LoadTexture(path));
 }
 
+void SpriteComponent::setPath(const char* path)
+{
+	m_texture = new Texture2D(RAYLIB_H::LoadTexture(path));
+}
+
 SpriteComponent::~SpriteComponent()
 {
 	RAYLIB_H::UnloadTexture(*m_texture);

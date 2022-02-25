@@ -17,7 +17,7 @@ void SeekComponent::update(float deltaTime)
 	//Sets the owener position to this veriable
 	MathLibrary::Vector2 position = getOwner()->getTransform()->getWorldPosition();
 	//Sets max speed for easy access 
-	setMaxSpeed(300.0f);
+	setForce(300.0f);
 
 	//Tries to creat a desired velocity bey getiing the targets curent position and subtracting that by 
 	m_desiredVelocity = (getTarget()->getTransform()->getWorldPosition() - position).getNormalized();
