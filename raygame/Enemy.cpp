@@ -3,6 +3,7 @@
 #include "SeekComponent.h";
 #include "MoveComponent.h"
 #include "RotateComponent.h"
+#include "FleeComponent.h"
 
 
 Enemy::Enemy(float x, float y, const char* name, Actor* target) : Actor::Actor(x, y, name)
@@ -13,17 +14,21 @@ Enemy::Enemy(float x, float y, const char* name, Actor* target) : Actor::Actor(x
 void Enemy::start()
 {
 	Actor::start();
-	m_spriteComp = dynamic_cast addComponent<SpriteComponent>();
+	m_spriteComp = addComponent<SpriteComponent>();
+	m_spriteComp->setPath("Images/enemy.png");
 	
 
 	m_seekComp = addComponent<SeekComponent>();
 	m_seekComp->setTarget(getTarget());
 
-	m_rotateComp = addComponent<RotateComponent>();
-	m_moveComp = addComponent<MoveComponent>();
+	m_fleeComp = addComponent<FleeComponent>();
+	m_fleeComp->setTarget(getTarget());
 
+	m_rotateComp = addComponent<RotateComponent>();
+	
+	/*m_moveComp = addComponent<MoveComponent>();
 	m_moveComp->setVelocity({ 0,-1 });
-	m_moveComp->setMaxSpeed(100);
+	m_moveComp->setMaxSpeed(100);*/
 }
 
 void Enemy::update(float deltaTime)

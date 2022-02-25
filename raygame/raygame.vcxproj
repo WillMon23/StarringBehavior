@@ -153,6 +153,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="FleeComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainScene.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="FleeComponent.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="MainScene.h" />
     <ClInclude Include="MoveComponent.h" />

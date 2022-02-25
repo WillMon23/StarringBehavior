@@ -7,10 +7,13 @@ void Player::start()
 {
 	Actor::start();
 
-	m_inputComponent = new InputComponent();
-	m_moveComponent = new MoveComponent();
+	m_inputComponent = addComponent<InputComponent>();
+
+	m_moveComponent = addComponent<MoveComponent>();
 	m_moveComponent->setMaxSpeed(10);
-	m_spriteComponent = new SpriteComponent("Images/player.png");
+
+	m_spriteComponent = addComponent<SpriteComponent>();
+	m_spriteComponent->setPath("Images/player.png");
 
 	//Set spawn point
 	//Set move speed
