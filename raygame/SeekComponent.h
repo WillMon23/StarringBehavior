@@ -23,7 +23,7 @@ public:
     //Displays the values of the values for the Velocity
     MathLibrary::Vector2 getVelocity() { return m_velocity; }
 
-    MathLibrary::Vector2 calculateForce();
+    MathLibrary::Vector2 calculateForce() override;
 
     //Sets the accosiated values to there private variables
     void setTarget(Actor* target) { m_target = target; }
