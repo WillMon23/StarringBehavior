@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClCompile Include="AABBCollider.cpp" />
     <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Agent.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -162,13 +163,15 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SeekComponent.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="SteeringComponent.cpp" />
     <ClCompile Include="Transform2D.cpp" />
     <ClCompile Include="WonderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABBCollider.h" />
     <ClInclude Include="Actor.h" />
-    <ClInclude Include="ActorArray.h" />
+    <ClInclude Include="DynamicArray.h" />
+    <ClInclude Include="Agent.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
@@ -183,6 +186,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SeekComponent.h" />
     <ClInclude Include="SpriteComponent.h" />
+    <ClInclude Include="SteeringComponent.h" />
     <ClInclude Include="Transform2D.h" />
     <ClInclude Include="WonderComponent.h" />
   </ItemGroup>

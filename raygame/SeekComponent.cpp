@@ -1,6 +1,7 @@
 #include "SeekComponent.h"
 #include "Actor.h"
-#include "Transform2D.h"
+#include <Vector2.h>
+#include "Agent.h"
 #include "MoveComponent.h"
 #include <Matrix3.h>
 #include <iostream>
@@ -43,4 +44,16 @@ void SeekComponent::update(float deltaTime)
 
 	getOwner()->getTransform()->setWorldPostion(position);
 }
+
+MathLibrary::Vector2 SeekComponent::calculateForce()
+{
+	if (!getTarget())
+		return { 0,0 };
+
+	MathLibrary::Vector2 directionToTarget = getTarget()->getTransform()->getWorldPosition()
+		- getOwner()->getTransform()->getWorldPosition();
+
+	MathLibrary::Vector2 desiredVelocity = directionToTarget.getNormalized() * getSteeringForce();
+	MathLibrary::Vector2 seekForce = desiredVelocity - getAgent()->getMoveMoveComponent()->getVelocity();
+	return seekForce;
  

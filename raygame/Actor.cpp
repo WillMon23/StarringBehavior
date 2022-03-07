@@ -27,6 +27,37 @@ Actor::Actor(float x, float y, const char* name = "Actor")
     m_name = name;
 }
 
+Component* Actor::addComponent(Component* component)
+{
+     //Return null if this component has an owner already
+    Actor* owner = component->getOwner();
+    if (owner)
+        return nullptr;
+
+    component->assignOwner(this);
+
+    //Create a new array with a size one greater than our old array
+    Component** appendedArray = new Component * [m_componentCount + 1];
+    //Copy the values from the old array to the new array
+    for (int i = 0; i < m_componentCount; i++)
+    {
+        appendedArray[i] = m_components[i];
+    }
+
+    //Set the last value in the new array to be the actor we want to add
+    appendedArray[m_componentCount] = component;
+    if (m_componentCount > 1)
+        //Set old array to hold the values of the new array
+        delete[] m_components;
+    else if (m_componentCount == 1)
+        delete m_components;
+
+    m_components = appendedArray;
+    m_componentCount++;
+
+    return component;
+}
+
 bool Actor::removeComponent(Component* component)
 {
     if (!component)

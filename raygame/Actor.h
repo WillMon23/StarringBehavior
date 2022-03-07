@@ -67,7 +67,13 @@ public:
     /// </summary>
     /// <param name="component">The new component to attach to the actor</param>
     /// <returns>A reference to the component added to the array</returns>
-    Component* addComponent(Component component);
+    Component* addComponent(Component* component);
+
+    /// <summary>
+    /// Called whe a new component is added to the actor
+    /// </summary>
+    /// <param name="component"></param>
+    virtual void onAddComponent(Component* component) {};
 
     /// <summary>
     /// Removes the first instance found that matches the component reference
@@ -178,6 +184,8 @@ T* Actor::addComponent()
 
     m_components = appendedArray;
     m_componentCount++;
+
+    onAddComponent(component);
 
     return (T*)component;
 }

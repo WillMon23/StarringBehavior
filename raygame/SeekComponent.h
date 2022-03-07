@@ -1,14 +1,14 @@
 #pragma once
-#include "Component.h"
+#include "SteeringComponent.h"
 #include "Transform2D.h"
 
 
 class SeekComponent :
-    public Component
+    public SteeringComponent
 {
 public:
     SeekComponent() {};
-    SeekComponent(Actor* target) : Component::Component() { m_target = target; };
+    SeekComponent(Actor* target) : SteeringComponent::SteeringComponent() { m_target = target; };
     ~SeekComponent() { delete m_target; };
 
     //Happes at the start of the the oporation 
@@ -22,6 +22,8 @@ public:
     float getForce() { return m_force; }
     //Displays the values of the values for the Velocity
     MathLibrary::Vector2 getVelocity() { return m_velocity; }
+
+    MathLibrary::Vector2 calculateForce();
 
     //Sets the accosiated values to there private variables
     void setTarget(Actor* target) { m_target = target; }

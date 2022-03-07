@@ -1,8 +1,8 @@
 #pragma once
 #include <time.h>
 #include <math.h>
-#include "Component.h"
 #include "Actor.h"
+#include "Component.h"
 #include "Transform2D.h"
 #include "MoveComponent.h"
 
