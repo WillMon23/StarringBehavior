@@ -1,6 +1,7 @@
 #include "SeekComponent.h"
 #include "Actor.h"
 #include "Transform2D.h"
+#include "MoveComponent.h"
 #include <Matrix3.h>
 #include <iostream>
 
@@ -19,6 +20,8 @@ void SeekComponent::update(float deltaTime)
 	//Sets max speed for easy access 
 	setForce(300.0f);
 
+	m_velocity = getOwner()->getComponent<MoveComponent>()->getVelocity().getNormalized();
+
 	//Tries to creat a desired velocity bey getiing the targets curent position and subtracting that by 
 	m_desiredVelocity = (getTarget()->getTransform()->getWorldPosition() - position).getNormalized();
 
@@ -26,7 +29,7 @@ void SeekComponent::update(float deltaTime)
 	m_desiredVelocity = m_desiredVelocity * getForce();
 
 	//
-	MathLibrary::Vector2 steeringForce = m_desiredVelocity - m_velocity ;
+	MathLibrary::Vector2 steeringForce = m_desiredVelocity + m_velocity ;
 
 	m_velocity = m_velocity + steeringForce * deltaTime * getForce();
 	

@@ -19,7 +19,8 @@ void Enemy::start()
 	
 
 	/*m_seekComp = addComponent<SeekComponent>();
-	m_seekComp->setTarget(getTarget());*/
+	m_seekComp->setTarget(getTarget());
+	m_seekComp->setForce(20.0f);*/
 
 	m_fleeComp = addComponent<FleeComponent>();
 	m_fleeComp->setTarget(getTarget());

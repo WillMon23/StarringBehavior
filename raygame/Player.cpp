@@ -10,6 +10,7 @@ void Player::start()
 	m_inputComponent = addComponent<InputComponent>();
 
 	m_moveComponent = addComponent<MoveComponent>();
+
 	m_moveComponent->setMaxSpeed(10);
 
 	m_spriteComponent = addComponent<SpriteComponent>();

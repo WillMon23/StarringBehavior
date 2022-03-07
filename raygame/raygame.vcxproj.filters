@@ -65,7 +65,7 @@
     <ClCompile Include="RotateComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FleeComponent.cpp">
+    <ClCompile Include="WonderComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
