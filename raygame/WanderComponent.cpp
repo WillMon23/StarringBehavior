@@ -15,9 +15,12 @@ WanderComponent::WanderComponent(float circleDistance, float circleRadius, float
 
 MathLibrary::Vector2 WanderComponent::calculateForce()
 {
+	if (getSteeringForce() == 0)
+		return { 0,0 };
+
 	//Find the agents position and heading
 	MathLibrary::Vector2 ownerPosition = getOwner()->getTransform()->getWorldPosition();
-	MathLibrary::Vector2 heading = getAgent()->getMoveMoveComponent()->getVelocity().getNormalized();
+	MathLibrary::Vector2 heading = getAgent()->getMoveComponent()->getVelocity().getNormalized();
 
 	//Find the circles position in front of the agent
 	float magnitude = heading.getMagnitude();
@@ -33,7 +36,7 @@ MathLibrary::Vector2 WanderComponent::calculateForce()
 	//Seek to the random point 
 	m_target = randDirection + m_circlePos;
 	MathLibrary::Vector2 desiredVelocity = MathLibrary::Vector2::normalize(m_target - ownerPosition) * getSteeringForce();
-	MathLibrary::Vector2 force = desiredVelocity - getAgent()->getMoveMoveComponent()->getVelocity();
+	MathLibrary::Vector2 force = desiredVelocity - getAgent()->getMoveComponent()->getVelocity();
 
 	return force;
 }

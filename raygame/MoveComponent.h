@@ -1,6 +1,6 @@
 #pragma once
 #include "Component.h"
-#include <Vector2.h>
+#include <Vector2.h>d
 
 class MoveComponent :
 	public Component

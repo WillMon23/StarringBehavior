@@ -25,7 +25,7 @@ public:
     MathLibrary::Vector2 getForce() { return m_force; };
     void setForce(MathLibrary::Vector2 value) { m_force = value; };
 
-    MoveComponent* getMoveMoveComponent() { return m_moveComponent; };
+    MoveComponent* getMoveComponent() { return m_moveComponent; };
 
 private:
     DynamicArray<SteeringComponent*> m_steeringComponent;

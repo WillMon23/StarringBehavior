@@ -11,11 +11,6 @@ public:
     SeekComponent(Actor* target) : SteeringComponent::SteeringComponent() { m_target = target; };
     ~SeekComponent() { delete m_target; };
 
-    //Happes at the start of the the oporation 
-    void start() override;
-    //Updates the current state of the componets 
-    void update(float deltaTime) override;
-
     //Gets the sets the target of this component 
     Actor* getTarget() { return m_target; }   
     //Sets the value for the force being puished 

@@ -25,7 +25,7 @@ void Enemy::start()
 	/*m_fleeComp = addComponent<FleeComponent>();
 	m_fleeComp->setTarget(getTarget());*/
 
-	//m_rotateComp = addComponent<RotateComponent>();
+	m_rotateComp = addComponent<RotateComponent>();
 	
 	m_moveComp = addComponent<MoveComponent>();
 	m_moveComp->setVelocity({ 1,0 });
