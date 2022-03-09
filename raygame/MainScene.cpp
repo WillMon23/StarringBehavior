@@ -20,14 +20,14 @@ void MainScene::start()
 
 	Agent* agent = new Agent();
 	agent->getTransform()->setScale({ 50,50 });
-	agent->setMaxForce(500.0f);
+	agent->setMaxForce(100.0f);
 	agent->addComponent(new SpriteComponent("Images/enemy.png"));
 
-	WanderComponent* wanderComp = new WanderComponent(1000, 200, 50);
+	WanderComponent* wanderComp = new WanderComponent(1000, 200, 100);
 	agent->addComponent(wanderComp);
 
 	SeekComponent* seekComp = new SeekComponent();
-	seekComp->setSteeringForce(50);
+	seekComp->setSteeringForce(10);
 	seekComp->setTarget(player);
 	agent->addComponent(seekComp);
 

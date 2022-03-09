@@ -30,7 +30,6 @@ void Agent::update(float deltaTime)
 
 void Agent::onAddComponent(Component* componet)
 {
-
 	SteeringComponent* steeringComponent = dynamic_cast<SteeringComponent*>(componet);
 	if (steeringComponent)
 		m_steeringComponent.addItem(steeringComponent);
