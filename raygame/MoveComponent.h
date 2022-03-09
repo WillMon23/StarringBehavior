@@ -25,6 +25,10 @@ public:
 	/// </summary>
 	float getMaxSpeed() { return m_maxSpeed; }
 
+	void setUpdateFacing(bool value) { m_updateFacing = value; };
+
+	bool getUpdateFacing() { return m_updateFacing; };
+
 	/// <summary>
 	/// Set the maximum magnitude of this actors velocity vector
 	/// </summary>
@@ -37,5 +41,7 @@ public:
 private:
 	MathLibrary::Vector2 m_velocity;
 	float m_maxSpeed;
+	bool m_updateFacing;
+
 };
 

@@ -20,7 +20,7 @@ public:
     void onAddComponent(Component* componet) override;
 
     float getMaxForce() { return m_maxForce; };
-    void setMatForce(float value) { m_maxForce = value; };
+    void setMaxForce(float value) { m_maxForce = value; };
 
     MathLibrary::Vector2 getForce() { return m_force; };
     void setForce(MathLibrary::Vector2 value) { m_force = value; };

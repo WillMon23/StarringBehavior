@@ -7,10 +7,10 @@ class SteeringComponent :
     public Component
 {
 public:
-    SteeringComponent() { m_target = nullptr; m_steeringForce = 0};
+    SteeringComponent() { m_target = nullptr; m_steeringForce = 0; };
     SteeringComponent(Actor* actor, float steeringForce) { m_target = actor; m_steeringForce = steeringForce; };
 
-    void start() override;
+    void start() override {};
 
     virtual MathLibrary::Vector2 calculateForce() = 0;
 
@@ -23,11 +23,8 @@ public:
     Agent* getAgent() { return (Agent*)getTarget(); }
 
    
-
 private:
     float m_steeringForce = 0;
     Actor* m_target = nullptr;
-
-    MoveComponent* m_moveComp;
 };
 
