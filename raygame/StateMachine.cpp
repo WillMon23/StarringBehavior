@@ -13,7 +13,7 @@ void StateMachineComponent::start()
 	m_wanderComp = getOwner()->getComponent< WanderComponent >();
 	m_wanderForce = m_wanderComp->getSteeringForce();
 
-	m_currentState - IDLE;
+	m_currentState = IDLE;
 }
 
 void StateMachineComponent::update(float deltaTime)
