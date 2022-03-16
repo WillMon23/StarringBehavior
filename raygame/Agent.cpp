@@ -11,8 +11,6 @@ Agent::Agent(float x, float y, const char* name, float maxForce, float maxSpeed)
 void Agent::start()
 {
 	Actor::start();
-	m_moveComponent = addComponent<MoveComponent>();
-	m_moveComponent->setMaxSpeed(5);
 	m_moveComponent->setUpdateFacing(true);
 }
 

@@ -15,7 +15,7 @@ void MainScene::start()
 	Player* player = new Player(50, 50, "Player");
 	player->getTransform()->setScale({ 50,50 });
 
-	Enemy* enemy = new Enemy(300, 300, "enemy", 100.0f, 200.0f, player);
+	Enemy* enemy = new Enemy(300, 300, "enemy", 50.0f, 700.0f, player);
 	enemy->getTransform()->setScale({ 50,50 });
 
 	Agent* agent = new Agent();
@@ -23,7 +23,7 @@ void MainScene::start()
 	agent->setMaxForce(100.0f);
 	agent->addComponent(new SpriteComponent("Images/enemy.png"));
 
-	WanderComponent* wanderComp = new WanderComponent(1000, 200, 100);
+	WanderComponent* wanderComp = new WanderComponent(1000, 200, 50);
 	agent->addComponent(wanderComp);
 
 	SeekComponent* seekComp = new SeekComponent();
@@ -35,5 +35,5 @@ void MainScene::start()
 	
 	addItem(player);
 	addItem(enemy);
-	addItem(agent);
+	//addItem(agent);
 }

@@ -1,6 +1,8 @@
 #include "Enemy.h"
 #include "SpriteComponent.h";
+#include "WanderComponent.h"
 #include "SeekComponent.h";
+#include "DecisionComponent.h"
 #include "MoveComponent.h"
 #include "RotateComponent.h"
 #include "FleeComponent.h"
@@ -24,39 +26,38 @@ Enemy::Enemy(float x, float y, const char* name, float maxForce, float maxSpeed,
 
 void Enemy::start()
 {
-	Actor::start();
+	Agent::start();
 
 	IdleDecision* idle = new IdleDecision();
 	WanderDecision* wander = new WanderDecision();
 	SeekDecision* seek = new SeekDecision();
 
-	isAgressiveDecision agressive = new isAgressiveDecision(idle, wander);
-	InrangeDecision inRanget = InrangeDecision();
-	addComponent<SpriteComponent>();
-	getComponent<SpriteComponent>()->setPath("Images/enemy.png");
-	
+	isAgressiveDecision* agressive = new isAgressiveDecision(idle, wander);
+	InrangeDecision* inRange =  new InrangeDecision(agressive, seek);
 
-	m_seekComp = addComponent<SeekComponent>();
-	m_seekComp->setTarget(getTarget());
-	m_seekComp->setForce(20.0f);
+	addComponent(new DecisionComponent(inRange));
 
-	/*m_fleeComp = addComponent<FleeComponent>();
-	m_fleeComp->setTarget(getTarget());*/
+	getTransform()->setScale({ 50,50 });
+	addComponent(new SpriteComponent("Images/enemy.png"));
 
-	m_rotateComp = addComponent<RotateComponent>();
-	
-	m_moveComp = addComponent<MoveComponent>();
-	m_moveComp->setVelocity({ 1,0 });
-	m_moveComp->setMaxSpeed(100.0f);
+	WanderComponent* wanderComponent = new WanderComponent(100, 100, 100);
+	addComponent(wanderComponent);
+
+	SeekComponent* seekComp = new SeekComponent();
+	seekComp->setSteeringForce(10);
+	seekComp->setTarget(getTarget());
+	addComponent(seekComp);
 }
 
 void Enemy::update(float deltaTime)
 {
-	Actor::update(deltaTime);
+	Agent::update(deltaTime);
 }
 
-bool Enemy::getTargetInRange()
+bool Enemy::getTargetInSight()
 {
-	float distance = m_target->getTransform()->getWorldPosition().getMagnitude();
-	return distance <= 10;
+	float distance = (m_target->getTransform()->getWorldPosition() - getTransform()->getWorldPosition()).getMagnitude();
+
+	MathLibrary::Vector2 directVector = (m_target->getTransform()->getWorldPosition() - getTransform()->getWorldPosition()).getNormalized();
+	return distance <= 10 && acos(MathLibrary::Vector2::dotProduct(directVector, getTransform()->getForward())) < 1;
 }

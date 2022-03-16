@@ -17,7 +17,7 @@ public :
     void start() override;
     void update(float deltaTime);
 
-    bool getTargetInRange();
+    bool getTargetInSight();
 
     Actor* getTarget() { return m_target; };
     void setTarget(Actor* target) { m_target = target; };

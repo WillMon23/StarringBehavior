@@ -9,7 +9,8 @@ void SeekDecision::makeDecision(Agent* agent, float deltaTime)
 	Enemy* enemy = dynamic_cast<Enemy*>(agent);
 
 	if (seek)
-		seek->setSteeringForce(52);
+		seek->setSteeringForce(20);
+
 	if (enemy)
 		enemy->setIsAgressive(true);
 }

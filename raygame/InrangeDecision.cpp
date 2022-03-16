@@ -6,7 +6,7 @@ bool InrangeDecision::checkCondition(Agent* agent, float deltaTime)
     Enemy* enemy = dynamic_cast<Enemy*>(agent);
     if (enemy)
     {
-        return enemy->getTargetInRange();
+        return enemy->getTargetInSight();
     }
     return false;
 }
