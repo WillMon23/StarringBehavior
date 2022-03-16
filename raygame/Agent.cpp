@@ -1,6 +1,13 @@
 #include "Agent.h"
 #include "MoveComponent.h"
 
+Agent::Agent(float x, float y, const char* name, float maxForce, float maxSpeed)
+{
+	setMaxForce(maxForce);
+	m_moveComponent = addComponent<MoveComponent>();
+	m_moveComponent->setMaxSpeed(maxSpeed);
+}
+
 void Agent::start()
 {
 	Actor::start();

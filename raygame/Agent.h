@@ -12,6 +12,7 @@ class Agent :
 {
 public:
     Agent() {};
+    Agent(float x, float y, const char* name, float maxForce, float maxSpeed);
     ~Agent() {};
 
     void start() override;

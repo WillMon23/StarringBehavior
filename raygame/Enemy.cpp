@@ -4,9 +4,20 @@
 #include "MoveComponent.h"
 #include "RotateComponent.h"
 #include "FleeComponent.h"
+#include "SeekDecision.h"
+#include "InrangeDecision.h"
+#include "WanderDecision.h"
+#include "isAgressiveDecision.h"
+#include "IdleDecision.h"
+#include "Decision.h"
 
 
-Enemy::Enemy(float x, float y, const char* name, Actor* target) : Actor::Actor(x, y, name)
+Enemy::Enemy(float x, float y, const char* name, Actor* target)
+{
+	m_target = target;
+}
+
+Enemy::Enemy(float x, float y, const char* name, float maxForce, float maxSpeed, Actor* target) :Agent::Agent(x, y, name, maxForce, maxSpeed)
 {
 	m_target = target;
 }
@@ -14,8 +25,15 @@ Enemy::Enemy(float x, float y, const char* name, Actor* target) : Actor::Actor(x
 void Enemy::start()
 {
 	Actor::start();
-	m_spriteComp = addComponent<SpriteComponent>();
-	m_spriteComp->setPath("Images/enemy.png");
+
+	IdleDecision* idle = new IdleDecision();
+	WanderDecision* wander = new WanderDecision();
+	SeekDecision* seek = new SeekDecision();
+
+	isAgressiveDecision agressive = new isAgressiveDecision(idle, wander);
+	InrangeDecision inRanget = InrangeDecision();
+	addComponent<SpriteComponent>();
+	getComponent<SpriteComponent>()->setPath("Images/enemy.png");
 	
 
 	m_seekComp = addComponent<SeekComponent>();
@@ -35,4 +53,10 @@ void Enemy::start()
 void Enemy::update(float deltaTime)
 {
 	Actor::update(deltaTime);
+}
+
+bool Enemy::getTargetInRange()
+{
+	float distance = m_target->getTransform()->getWorldPosition().getMagnitude();
+	return distance <= 10;
 }

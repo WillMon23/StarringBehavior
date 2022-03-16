@@ -12,6 +12,9 @@
     <Filter Include="Components">
       <UniqueIdentifier>{9d6cdb27-055d-451c-a357-070fb461e82d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Decision">
+      <UniqueIdentifier>{897f84f4-75a6-4a7e-815f-60d700c56426}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -56,9 +59,6 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WonderComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Agent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -80,11 +80,32 @@
     <ClCompile Include="StateMachine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Decision.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="DecisionComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="WonderComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="InrangeDecision.cpp">
+      <Filter>Decision</Filter>
     </ClCompile>
     <ClCompile Include="BooleanDecisions.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="Decision.cpp">
+      <Filter>Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderDecision.cpp">
+      <Filter>Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekDecision.cpp">
+      <Filter>Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="isAgressiveDecision.cpp">
+      <Filter>Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="IdleDecision.cpp">
+      <Filter>Decision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,9 +151,6 @@
     <ClInclude Include="Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WonderComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Agent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -157,11 +175,32 @@
     <ClInclude Include="StateMachine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Decision.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="DecisionComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="WonderComponent.h">
+      <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="BooleanDecisions.h">
-      <Filter>Header Files</Filter>
+      <Filter>Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="InrangeDecision.h">
+      <Filter>Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="Decision.h">
+      <Filter>Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderDecision.h">
+      <Filter>Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekDecision.h">
+      <Filter>Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="isAgressiveDecision.h">
+      <Filter>Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="IdleDecision.h">
+      <Filter>Decision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

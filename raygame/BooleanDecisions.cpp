@@ -8,11 +8,11 @@ BooleanDecisions::BooleanDecisions(Decision* leftChild, Decision* rightChild)
 
 void BooleanDecisions::makeDecision(Agent* agent, float deltaTime)
 {
+	//Checks the condition 
 	if (checkCondition(agent, deltaTime))
 	{
 		if (m_yes)
 			m_yes->makeDecision(agent, deltaTime);
-
 	}
 	else
 	{
