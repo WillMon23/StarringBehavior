@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "InputComponent.h"
+#include "RotateComponent.h"
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
 
@@ -15,6 +16,7 @@ void Player::start()
 
 	m_spriteComponent = addComponent<SpriteComponent>();
 	m_spriteComponent->setPath("Images/player.png");
+	addComponent<RotateComponent>();
 
 	//Set spawn point
 	//Set move speed
