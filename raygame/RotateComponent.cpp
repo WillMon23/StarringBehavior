@@ -3,5 +3,5 @@
 #include "Actor.h"
 void RotateComponent::update(float deltaTime)
 {
-	getOwner()->getTransform()->rotate(getOwner()->getTransform()->getForward().getNormalized().getMagnitude());
+	getOwner()->getTransform()->setRotation(getOwner()->getTransform()->getForward().getNormalized().getMagnitude());
 }
